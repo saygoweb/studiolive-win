@@ -48,17 +48,17 @@
 	</ItemGroup>
 	<Target Name="CleanWebRoot">
 		<RemoveDir Directories="@(WebRootDir)" />
+		<MakeDir Directories="$(RootDir)\web_root" />
 	</Target>
 	
 	<Target Name="ExtractWebRoot">
-		<MakeDir Directories="$(RootDir)\web_root" />
 		<Exec Command='gunzip -d -c $(RootDir)\lib\studiolive.tgz | tar -xv -C $(RootDir)\web_root' />
 	</Target>
 	
 	<Target Name="MakeWebRoot" DependsOnTargets="CleanWebRoot;ExtractWebRoot">
 	</Target>
 	
-	<Target Name="Installer" DependsOnTargets="VersionNumbers">
+	<Target Name="Installer" DependsOnTargets="VersionNumbers;MakeWebRoot">
 
 		<CallTarget Targets="CleanInstaller" />
 	
