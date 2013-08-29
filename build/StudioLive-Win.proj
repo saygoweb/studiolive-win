@@ -52,7 +52,7 @@
 	</Target>
 	
 	<Target Name="ExtractWebRoot">
-		<Exec Command='gunzip -d -c $(RootDir)\lib\studiolive.tgz | tar -xv -C $(RootDir)\web_root' />
+		<Exec Command='gunzip -d -c $(RootDir)\lib\studiolive.tgz | tar -xv -C ../web_root' />
 	</Target>
 	
 	<Target Name="MakeWebRoot" DependsOnTargets="CleanWebRoot;ExtractWebRoot">
