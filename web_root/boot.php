@@ -26,7 +26,7 @@ class Boot {
 		echo '</pre>' . PHP_EOL;
 		?>
 <script type="text/javascript">
-		window.location = "http://localhost:8080/";
+		window.location = "http://localhost:8080?skipboot";
 </script>'
 		<?php 
 		echo '</body></html>';
