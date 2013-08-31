@@ -65,7 +65,7 @@ Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, "&", "&&")}}"; Flags: nowait postinstall skipifsilent
-FileName: "http://localhost:8080/readme.txt"; Description: "View the ReadMe"; Flags: nowait postinstall shellexec runasoriginaluser
+FileName: "http://localhost:8080/readme.php"; Description: "View the ReadMe"; Flags: nowait postinstall shellexec runasoriginaluser
 
 [InnoIDE_Settings]
 LogFileOverwrite=false
