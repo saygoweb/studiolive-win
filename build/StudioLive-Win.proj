@@ -86,7 +86,7 @@
 
 	</Target>
 
-	<Target Name="Upload" DependsOnTargets="VersionNumbers;MakeWebRoot">
+	<Target Name="Upload" DependsOnTargets="Installer">
 		<Copy
 			SourceFiles="$(RootDir)\installer\output\StudioLiveSetup.$(Version).exe"
 			DestinationFiles="$(SharedDir)\StudioLiveSetup.$(Version).exe"
