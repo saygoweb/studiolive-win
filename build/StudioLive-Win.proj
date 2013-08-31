@@ -40,15 +40,8 @@
 		<Delete Files="@(InstallerBinFiles)" TreatErrorsAsWarnings="true" />
 	</Target>
 	
-	
-	<ItemGroup>
-		<WebRootDir
-			Include="$(RootDir)/web_root/;"
-			Exclude="" />
-	</ItemGroup>
 	<Target Name="CleanWebRoot">
-		<RemoveDir Directories="@(WebRootDir)" />
-		<MakeDir Directories="$(RootDir)\web_root" />
+		<Exec Command='git clean -f -d -x $(RootDir)/web_root' />
 	</Target>
 	
 	<Target Name="ExtractWebRoot">
