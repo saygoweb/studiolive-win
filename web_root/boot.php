@@ -9,16 +9,15 @@ class Boot {
 		echo 'StudioLive Boot Loader' . PHP_EOL;
 		echo '----------------------' . PHP_EOL;
 		echo 'Checking MongoDB ...' . PHP_EOL;
-// 		flush();
 		$isMongoLoaded = self::isMongoLoaded();
 		if (!$isMongoLoaded) {
 			echo '[FAIL] Mongo is not loaded.' . PHP_EOL;
-// 		flush();
 			self::startMongo();
 			sleep(1);
 			$isMongoLoaded = self::isMongoLoaded();
 			if (!$isMongoLoaded) {
 				echo '[FAIL] Could not load MongoDB' . PHP_EOL;
+				exit;
 			} else {
 				echo '[OK] Mongo loaded. Redirecting to StudioLive' . PHP_EOL;
 			}
@@ -47,28 +46,19 @@ class Boot {
 	private static function startMongo() {
 		echo 'Starting MongoDB ...' . PHP_EOL;
 		$path = realpath(dirname(__FILE__) . '/..');
-// 		echo $path;
-// 		exit;
-// 		flush();
  		$cmd = "mongod.exe --config mongodb.conf";
-//		$cmd = "cd";
 		$descriptorspec = array(
-				0 => array("pipe", "r"),   // stdin
-				1 => array("pipe", "w"),  // stdout
-				2 => array("pipe", "w")   // stderr
+			0 => array("pipe", "r"), // stdin
+			1 => array("pipe", "w"), // stdout
+			2 => array("pipe", "w")  // stderr
 		);
 		$pipes = array();
 		$handle = proc_open(sprintf("start /B %s", $cmd), $descriptorspec, $pipes, $path);
  		proc_close($handle);
-// 		exec(sprintf("%s", $cmd), $output, $result);
-// 		var_dump($cmd);
-// 		var_dump($output);
-// 		var_dump($result);
 	}
 	
 }
 
-Boot::ensureMongoLoaded();
-
+//Boot::ensureMongoLoaded();
 
 ?>
