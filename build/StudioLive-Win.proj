@@ -2,6 +2,7 @@
 	<PropertyGroup>
 		<RootDir>$(teamcity_build_checkoutDir)</RootDir>
 		<LargeFilesDir>c:\BuildDownloads</LargeFilesDir>
+		<SharedDir>C:\Documents and Settings\admin\My Documents\Google Drive\StudioLive</SharedDir>
 	</PropertyGroup>
 
 	<UsingTask TaskName="Split" AssemblyFile="$(RootDir)/build/Palaso.BuildTasks.dll" />
@@ -11,7 +12,7 @@
 	<!-- Note, after some thought, we've decided this is the best place to keep the version number (not on TeamCity, not in the assemblies).     -->
 	<PropertyGroup>
 		<VersionMajor>0</VersionMajor>
-		<VersionMinor>8</VersionMinor>
+		<VersionMinor>9</VersionMinor>
 	</PropertyGroup>
 	<Target Name="VersionNumbers">
 		<Message Text="BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
@@ -84,5 +85,12 @@
 		<Delete Files="$(RootDir)\installer\output\StudioLiveSetup.exe" TreatErrorsAsWarnings="false" />
 
 	</Target>
+
+	<Target Name="Upload" DependsOnTargets="VersionNumbers;MakeWebRoot">
+		<Copy
+			SourceFiles="$(RootDir)\installer\output\StudioLiveSetup.$(Version).exe"
+			DestinationFiles="$(SharedDir)\StudioLiveSetup.$(Version).exe"
+		/>
+	</Target>	
 
 </Project>
