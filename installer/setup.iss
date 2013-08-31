@@ -39,8 +39,6 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: {app}\data
 Name: {app}\data\db
 Name: {app}\log
-Name: {app}\media
-Name: {app}\templates
 Name: {app}\web_root
 
 [Files]
