@@ -88,7 +88,7 @@
 
 	<Target Name="Upload" DependsOnTargets="Installer">
 		<Copy
-			SourceFiles="$(RootDir)\installer\output\StudioLiveSetup.$(Version).exe"
+			SourceFiles="$(RootDir)\bin\installer\StudioLiveSetup.$(Version).exe"
 			DestinationFiles="$(SharedDir)\StudioLiveSetup.$(Version).exe"
 		/>
 	</Target>	
