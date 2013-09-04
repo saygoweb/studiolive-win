@@ -50,6 +50,7 @@ Source: ..\ssl_cert.pem; DestDir: {app};
 Source: ..\php.ini; DestDir: {app}; 
 Source: ..\php5ts.dll; DestDir: {app}; 
 Source: ..\php-cgi.exe; DestDir: {app}; 
+Source: ..\php_sockets.dll; DestDir: {app}; 
 Source: ..\phpmongo.dll; DestDir: {app}; 
 Source: ..\mongod.exe; DestDir: {app}; 
 Source: ..\web_root\*; DestDir: {app}\web_root; Flags: recursesubdirs; 
