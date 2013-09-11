@@ -11,8 +11,8 @@
 
 	<!-- Note, after some thought, we've decided this is the best place to keep the version number (not on TeamCity, not in the assemblies).     -->
 	<PropertyGroup>
-		<VersionMajor>0</VersionMajor>
-		<VersionMinor>10</VersionMinor>
+		<VersionMajor>1</VersionMajor>
+		<VersionMinor>0</VersionMinor>
 	</PropertyGroup>
 	<Target Name="VersionNumbers">
 		<Message Text="BUILD_NUMBER: $(BUILD_NUMBER)" Importance="high"/>
